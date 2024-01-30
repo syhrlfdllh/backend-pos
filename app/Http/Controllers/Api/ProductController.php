@@ -25,7 +25,29 @@ class ProductController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        // $request->validate([
+        //     'name' => 'required|min:3|unique:products',
+        //     'description' => 'required|min:10',
+        //     'price' => 'required|integer',
+        //     'stock' => 'required|integer',
+        //     'category' => 'required|in:food,drink,snack',
+        //     'image' => 'required|image|mimes:jpeg,png,jpg',
+        // ]);
+
+        // $filename = time() . '.' . $request->image->extension();
+        // $request->image->storeAs('public/products', $filename);
+        // $data = $request->all();
+
+        // $product = new \App\Models\Product();
+        // $product->name = $request->name;
+        // $product->description = $request->description;
+        // $product->price = (int) $request->price;
+        // $product->stock = (int) $request->stock;
+        // $product->category = $request->category;
+        // $product->image = $filename;
+        // $product->save();
+
+        // return redirect()->route('product.index')->with('success', 'Product successfully created');
     }
 
     /**

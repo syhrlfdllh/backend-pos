@@ -67,6 +67,7 @@
                                             <th>Name</th>
                                             <th>Stock</th>
                                             <th>Price</th>
+                                            <th>Photo</th>
                                             <th>Category</th>
                                             <th>Action</th>
                                         </tr>
@@ -83,6 +84,14 @@
                                                     {{ $product->price }}
                                                 </td>
                                                 <td>
+                                                    @if ($product->image)
+                                                        <img src="{{ asset('storage/products/' . $product->image) }}"
+                                                            alt="" width="100px" class="img-thumbnail">
+                                                    @else
+                                                        <span class="badge badge-danger">No Image</span>
+                                                    @endif
+                                                </td>
+                                                <td>
                                                     {{ $product->category }}
                                                 </td>
                                                 <td>
@@ -93,8 +102,8 @@
                                                             Edit
                                                         </a>
 
-                                                        <form action="{{ route('product.destroy', $product->id) }}" method="POST"
-                                                            class="ml-2">
+                                                        <form action="{{ route('product.destroy', $product->id) }}"
+                                                            method="POST" class="ml-2">
                                                             <input type="hidden" name="_method" value="DELETE" />
                                                             <input type="hidden" name="_token"
                                                                 value="{{ csrf_token() }}" />

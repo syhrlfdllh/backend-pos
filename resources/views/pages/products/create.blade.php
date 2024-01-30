@@ -31,7 +31,7 @@
                 </p>
 
                 <div class="card">
-                    <form action="{{ route('product.store') }}" method="POST">
+                    <form action="{{ route('product.store') }}" method="POST" enctype="multipart/form-data">
                         @csrf
                         <div class="card-body">
                             <div class="form-group">
@@ -104,6 +104,20 @@
 
                                 </div>
                             </div>
+
+                            <div class="form-group">
+                                <label class="form-label">Image</label>
+                                <div class="col-sm-9">
+                                    <input type="file" name="image" class="form-control"
+                                        @error('image') is-invalid @enderror>
+                                </div>
+                                @error('image')
+                                    <div class="invalid-feedback">
+                                        {{ $message }}
+                                    </div>
+                                @enderror
+                            </div>
+
                         </div>
                         <div class="card-footer text-right">
                             <button class="btn btn-primary">Submit</button>
